@@ -11,13 +11,13 @@ describe('PhoneListController', function(){
 		ctrl = $componentController('phoneList');
 	}));
 	
-	it('show create a `phones` module with 3 phones', inject(function($componentController, _$httpBackend_){
+	it('show create a `phones` module with 3 phones', function(){
 		expect(ctrl.phones).toBeUndefined();
 		$httpBackend.flush();
 		expect(ctrl.phones).toEqual([{name:"nexus"},{name:"motorola"}]);
-	}));
-	it('should create a default sort prop model', inject(function($componentController){
+	});
+	it('should create a default sort prop model', function() {
 		var ctrl = $componentController('phoneList');
 		expect(ctrl.orderProp).toBe("age");
-	}));
+	});
 });
