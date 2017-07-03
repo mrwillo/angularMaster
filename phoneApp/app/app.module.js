@@ -3,6 +3,7 @@
  */
 var phoneApp = angular.module("phoneApp", [
 	'ngRoute',
+	'core',
 	'phoneList',
 	'phoneDetail'
 ]);
