@@ -1,0 +1,21 @@
+<img ng-src="{{$ctrl.phone.images[0]}}" class="phone"/>
+<h1>{{$ctrl.phone.name}}</h1>
+<p>{{$ctrl.phone.description}}</p>
+<ul>
+    <li ng-repeat="image in $ctrl.phone.images">
+        <img ng-src="{{image}}"/>
+    </li>
+</ul>
+<ul>
+    <li>
+        <span>Availability and Networks</span>
+        <dl>
+            <dt>Availability</dt>
+            <dd ng-repeat="availability in $ctrl.phone.availability">{{availability}}</dd>
+        </dl>
+    </li>
+    <li>
+        <span>Additional Features</span>
+        <dd>{{$ctrl.phone.additionalFeatures}}</dd>
+    </li>
+</ul>
