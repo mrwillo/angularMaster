@@ -6,8 +6,12 @@ angular.module("phoneDetail").component("phoneDetail", {
 	controller: ['$http', '$routeParams', function PhoneDetailController($http, $routeParams) {
 		var compScope = this;
 		compScope.phoneId = $routeParams.phoneId;
+		compScope.setImage = function(imgUrl) {
+			compScope.mainImageUrl = imgUrl;
+		}
 		$http.get("phones/"+compScope.phoneId+".json").then(function(res){
 			compScope.phone = res.data;
+			compScope.mainImageUrl = res.data.images[0];
 		})
 	}]
 })
