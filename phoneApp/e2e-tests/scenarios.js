@@ -44,7 +44,11 @@ describe("phone app", function(){
 			query.sendKeys("nexus");
 			
 			element.all(by.css('.phones li a')).first().click();
-			expect(browser.getLocationAbsUrl()).toBe("#%2Fphones%2Fnexus-s");
+			expect(browser.getLocationAbsUrl()).toBe("/phones/nexus-s");
+		})
+		it('should redirect index.html to index.html#!/phones', function(){
+			browser.get("index.html");
+			expect(browser.getLocationAbsUrl()).toBe("/phones");
 		})
 	})
 })
