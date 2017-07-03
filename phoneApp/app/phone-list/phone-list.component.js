@@ -2,19 +2,14 @@
  * Created by willo on 7/2/17.
  */
 angular.module("phoneList").component("phoneList", {
-	templateUrl:'phone-list/phone-list.template.html',
-	controller: function PhoneListController(){
-		this.phones = [
-			{
-				name: 'Nexus S',
-				snippet: 'Fast just got faster with Nexus S.'
-			}, {
-				name: 'Motorola XOOM™ with Wi-Fi',
-				snippet: 'The Next, Next Generation tablet.'
-			}, {
-				name: 'MOTOROLA XOOM™',
-				snippet: 'The Next, Next Generation tablet.'
-			}
-		]
-	}
-})
+	templateUrl: 'phone-list/phone-list.template.html',
+	controller: ['$http',
+		function PhoneListController($http) {
+			var comModel = this;
+			$http.get("phones/phones.json").then(function(res){
+				comModel.phones = res.data;
+			});
+			comModel.orderProp = "age";
+		}
+	]
+});

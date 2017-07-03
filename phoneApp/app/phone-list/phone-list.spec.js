@@ -4,8 +4,20 @@
 describe('PhoneListController', function(){
 	beforeEach(module('phoneList'));
 	
-	it('show create a `phones` module with 3 phones', inject(function($componentController){
+	var $httpBackend, ctrl;
+	beforeEach(inject(function($componentController, _$httpBackend_){
+		$httpBackend = _$httpBackend_;
+		$httpBackend.expectGET("phones/phones.json").respond([{name:"nexus"},{name:"motorola"}]);
+		ctrl = $componentController('phoneList');
+	}));
+	
+	it('show create a `phones` module with 3 phones', inject(function($componentController, _$httpBackend_){
+		expect(ctrl.phones).toBeUndefined();
+		$httpBackend.flush();
+		expect(ctrl.phones).toEqual([{name:"nexus"},{name:"motorola"}]);
+	}));
+	it('should create a default sort prop model', inject(function($componentController){
 		var ctrl = $componentController('phoneList');
-		expect(ctrl.phones.length).toBe(3);
+		expect(ctrl.orderProp).toBe("age");
 	}));
 });
