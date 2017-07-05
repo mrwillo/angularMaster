@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>To do list</h2>
+            <hr/>
+            <ul>
+                <li ng-repeat="item in $ctrl.todoItems">
+                    <div class="checkbox">
+                        <input type="checkbox" ng-model="item.checked">
+                        <label  class="todo-done-{{item.checked}}">{{item.name}}</label>
+                    </div>
+                </li>
+            </ul>
+            <input type="text" ng-model="$ctrl.todoItem.name" class="todo-{{$ctrl.todoItem.error}}"/>
+            <button class="btn-primary" ng-click="$ctrl.addItem()">Add</button>
+        </div>
+    </div>
+</div>
