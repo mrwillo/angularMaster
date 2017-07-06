@@ -1,0 +1,17 @@
+{
+  "name": "todoAppNum1",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "mrwillo <tranduy86los@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/mrwillo/angularMaster",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
