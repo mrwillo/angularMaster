@@ -14,12 +14,31 @@
     </style>
 </head>
 <body>
+<input type="text" >
+<input type="text" >
+<input type="text" >
+<input type="text" >
 <div class="ng-view"></div>
 </body>
+
+<script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.min.js"></script>
 <script src="app.module.js"></script>
 <script src="app.config.js"></script>
 <script src="todo-list/todo-list.module.js"></script>
 <script src="todo-list/todo-list.component.js"></script>
+<script>
+    $("input:text").keyup(function(e){
+    	console.log(e.keyCode);
+    	var input = $(this);
+        setTimeout(function(){
+        	var keyToIgnore = [91,17,65,67,8];
+        	if (keyToIgnore.indexOf(e.keyCode) > -1) {
+        		return;
+            }
+	        input.val(input.val().replace(/[^a-zA-Z0-9- _\[\]]/g,""));
+        },100);
+    })
+</script>
 </html>

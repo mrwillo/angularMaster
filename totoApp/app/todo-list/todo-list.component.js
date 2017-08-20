@@ -13,7 +13,10 @@ angular.module("todoList").component("todoList",{
 				comp.todoItem = {};
 			} else {
 				comp.todoItem.error = "input-err"
+				
 			}
 		}
 	}
 })
+
+"~!@#$%^&C*B(A)[]-_".replace(/[^a-zA-Z0-9-_\[\]]/g,"")
